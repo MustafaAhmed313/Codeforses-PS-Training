@@ -14,8 +14,6 @@ public class SORT2D {
             else if (this.x == o.x && this.y == o.y) return 0;
             else return -1;
         }
-        @Override
-        public String toString() {return this.x + " " + this.y;}
     }
     public static void main(String[] args) {
         int t = input.nextInt();
