@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Codeforses-PS-Training.iml" filepath="$PROJECT_DIR$/Codeforses-PS-Training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Codeforses-PS-Training2.iml" filepath="$PROJECT_DIR$/.idea/Codeforses-PS-Training2.iml" />
     </modules>
   </component>
 </project>
