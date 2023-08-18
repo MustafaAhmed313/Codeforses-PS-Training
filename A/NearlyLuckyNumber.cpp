@@ -10,20 +10,20 @@
 using namespace std;
 
 void solve() {
-    ll n , cap = 0 , total = 0;cin >> n;
-    while (n--) {
-        ll a , b;cin >> a >> b;
-        total -= a;total += b;
-        cap = max(cap , total);
+    ll n , lucky = 0;cin >> n;
+    while (n) {
+        if (n % 10 == 7 || n % 10 == 4) lucky++;
+        n /= 10;
     }
-    cout << cap;
+    if (lucky == 7 || lucky == 4) cout << "YES";
+    else cout << "NO";
 }
 
 void files() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 int main() {
