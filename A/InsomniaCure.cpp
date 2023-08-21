@@ -6,25 +6,22 @@
 #define all(v) v.begin() , v.end()
 #define lower s.begin() , s.end() , s.begin() , ::tolower
 #define upper s.begin() , s.end() , s.begin() , ::toupper
-#define line(s)  getline(cin , s)
 
 using namespace std;
 
 void solve() {
-    string s;line(s);
-    map<char , int>m;
-    for (int i = 0 ; i < s.length() ; i++) {
-        char c = s[i];
-        if (c >= 'a' && c <= 'z') m[c]++;
+    int k , l , m , n , d , cnt = 0;cin >> k >> l >> m >> n >> d;
+    for (int i = 1 ; i <= d ; i++) {
+        if (i % k == 0 || i % l == 0 || i % m == 0 || i % n == 0) cnt++;
     }
-    cout << m.size();
+    cout << cnt;
 }
 
 void files() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 ll GCD(ll a,ll b) {
