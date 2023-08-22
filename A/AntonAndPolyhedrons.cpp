@@ -11,29 +11,35 @@
 using namespace std;
 
 void solve() {
-    int n , k , total = 0 , time = 0;cin >> n >> k;
-    int standard = 240 - k;
+    ll n;cin >> n;
+    map<string , int>m;
+    m["Tetrahedron"] = 4;
+    m["Cube"] = 6;
+    m["Octahedron"] = 8;
+    m["Dodecahedron"] = 12;
+    m["Icosahedron"] = 20;
+    int total = 0;
     for (int i = 0 ; i < n ; i++) {
-        if (time + ((i+1) * 5) <= standard) time += ((i+1) * 5) , total += 1;
+        string s;cin >> s;total += m[s];
     }
     cout << total;
 }
 
 void files() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
-ll gcd(ll a,ll b) {
+ll GCD(ll a,ll b) {
     if(a==0)
         return b;
-    return gcd(b%a,a);
+    return GCD(b%a,a);
 }
 
-ll lcm(ll a,ll b) {
-    return a*(b/gcd(a,b));
+ll LCM(ll a,ll b) {
+    return a*(b/GCD(a,b));
 }
 
 int main() {

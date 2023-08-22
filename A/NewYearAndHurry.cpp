@@ -20,20 +20,20 @@ void solve() {
 }
 
 void files() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
-ll gcd(ll a,ll b) {
+ll GCD(ll a,ll b) {
     if(a==0)
         return b;
-    return gcd(b%a,a);
+    return GCD(b%a,a);
 }
 
-ll lcm(ll a,ll b) {
-    return a*(b/gcd(a,b));
+ll LCM(ll a,ll b) {
+    return a*(b/GCD(a,b));
 }
 
 int main() {
