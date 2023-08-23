@@ -16,10 +16,10 @@ void solve() {
 }
 
 void files() {
-    #ifndef ONLINE_JUDGE
-        freopen("in.txt", "r", stdin);
-        freopen("out.txt", "w", stdout);
-    #endif
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
 }
 
 ll gcd(ll a,ll b) {
