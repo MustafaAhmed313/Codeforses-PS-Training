@@ -11,15 +11,24 @@
 using namespace std;
 
 void solve() {
-    int n , maximum = 0 , cnt = 0;cin >> n;
-    vector<int>a(n);
-    for (int i = 0 ; i < n ; i++) {
-        cin >> a[i] ;
-        maximum = max(maximum , a[i]);
+    int n;cin >> n;
+    vector<int>a(n+1) , b;
+    for (int i = 1 ; i <= n ; i++) cin >> a[i];
+    if (n != a[1]) cout << "NO" << endl;
+    else {
+        for (int i = n ; i >= 1 ; i--) {
+            while (b.size() < a[i]) b.push_back(i);
+        }
+        bool f = false;
+        for (int i = 1 ; i < n ; i++) {
+            if (a[i] != b[i-1]) {
+                f = true;
+                break;
+            }
+        }
+        if (f) cout << "NO"<< endl;
+        else cout << "YES" << endl;
     }
-    for (int i = 0 ; i < n ; i++)
-        if (a[i] != maximum) cnt += (maximum - a[i]);
-    cout << cnt;
 }
 
 void files() {
@@ -44,11 +53,11 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     // files();
-//    int t;cin >> t;
-//    while (t--) {
-//        solve();
-//    }
-    solve();
+    int t;cin >> t;
+    while (t--) {
+        solve();
+    }
+//    solve()
 }
 
 

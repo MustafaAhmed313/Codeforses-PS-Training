@@ -11,14 +11,11 @@
 using namespace std;
 
 void solve() {
-    int n , maximum = 0 , cnt = 0;cin >> n;
-    vector<int>a(n);
-    for (int i = 0 ; i < n ; i++) {
-        cin >> a[i] ;
-        maximum = max(maximum , a[i]);
+    int k , r , result = -1 , cnt = 0;cin >> k >> r;
+    while (result % 10 != 0 && result % 10 != r) {
+        cnt++;
+        result = k * cnt;
     }
-    for (int i = 0 ; i < n ; i++)
-        if (a[i] != maximum) cnt += (maximum - a[i]);
     cout << cnt;
 }
 
@@ -55,5 +52,4 @@ int main() {
 /*
 <<<saved problems>>>
 
-
- */
+*/

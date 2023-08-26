@@ -11,15 +11,8 @@
 using namespace std;
 
 void solve() {
-    int n , maximum = 0 , cnt = 0;cin >> n;
-    vector<int>a(n);
-    for (int i = 0 ; i < n ; i++) {
-        cin >> a[i] ;
-        maximum = max(maximum , a[i]);
-    }
-    for (int i = 0 ; i < n ; i++)
-        if (a[i] != maximum) cnt += (maximum - a[i]);
-    cout << cnt;
+    int n,k,l,c,d,p,nl,np;cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+    cout << min(k*l/nl , min(c*d , p/np)) / n;
 }
 
 void files() {

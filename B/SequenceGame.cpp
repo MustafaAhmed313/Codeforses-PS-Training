@@ -11,15 +11,19 @@
 using namespace std;
 
 void solve() {
-    int n , maximum = 0 , cnt = 0;cin >> n;
-    vector<int>a(n);
-    for (int i = 0 ; i < n ; i++) {
-        cin >> a[i] ;
-        maximum = max(maximum , a[i]);
+//i have a idea loop all elements of array b and if (b[i-1]>b[i]) a[i]=1;a[i+1]=b[i] else a[i] = b[i]
+    ll n;cin >> n;
+    vector<ll>b(n) , a;
+    for (int i = 0 ; i < n ; i++) cin >> b[i];
+    a.push_back(b[0]);
+    for (int i = 1 ; i < n ; i++) {
+        if (b[i-1] > b[i]) a.push_back(1) , a.push_back(b[i]);
+        else a.push_back(b[i]);
     }
-    for (int i = 0 ; i < n ; i++)
-        if (a[i] != maximum) cnt += (maximum - a[i]);
-    cout << cnt;
+    cout << a.size() << endl;
+    for (auto e : a) cout << e << " ";
+    cout << endl;
+
 }
 
 void files() {
@@ -44,16 +48,15 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     // files();
-//    int t;cin >> t;
-//    while (t--) {
-//        solve();
-//    }
-    solve();
+    int t;cin >> t;
+    while (t--) {
+        solve();
+    }
+//    solve()
 }
 
 
 /*
 <<<saved problems>>>
 
-
- */
+*/
