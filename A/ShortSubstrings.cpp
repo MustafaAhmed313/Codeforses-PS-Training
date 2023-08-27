@@ -11,14 +11,11 @@
 using namespace std;
 
 void solve() {
-    int y , k , result;cin >> y >> k;
-    result = 6 - max(y , k) + 1;
-    if (result == 2) cout << "1/3";
-    else if (result == 3) cout << "1/2";
-    else if (result == 4) cout << "2/3";
-    else if (result == 6) cout << "1/1";
-    else if (result == 0) cout << "0/1";
-    else cout << result << "/" << 6;
+    string b , a = "";cin >> b;
+    a += b[0];
+    for (int i = 1 ; i < b.length()-1 ; i+=2) a += b[i];
+    a += b[b.length() - 1];
+    cout << a << endl;
 }
 
 void files() {
@@ -44,11 +41,11 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     // files();
-//    int t;cin >> t;
-//    while (t--) {
-//        solve();
-//    }
-    solve();
+    int t;cin >> t;
+    while (t--) {
+        solve();
+    }
+//    solve();
 }
 
 

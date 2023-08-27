@@ -11,14 +11,15 @@
 using namespace std;
 
 void solve() {
-    int y , k , result;cin >> y >> k;
-    result = 6 - max(y , k) + 1;
-    if (result == 2) cout << "1/3";
-    else if (result == 3) cout << "1/2";
-    else if (result == 4) cout << "2/3";
-    else if (result == 6) cout << "1/1";
-    else if (result == 0) cout << "0/1";
-    else cout << result << "/" << 6;
+    string s , ans = "";cin >> s;//.-.--
+    int i = 0;
+    while (i < s.length()) {
+        string str = s.substr(i , 2);
+        if (str == "--") ans += "2" , i+=2;
+        else if (str == "-.") ans += "1" , i+=2;
+        else ans += "0" , i++;
+    }
+    cout << ans;
 }
 
 void files() {
