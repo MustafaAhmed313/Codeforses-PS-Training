@@ -3,7 +3,7 @@
 #define ll long long
 #define N 1e18
 #define large (1e9 + 5)
-#define all(v) v.begin() , v.end()
+#define all(a) a.begin() , a.end()
 #define lower s.begin() , s.end() , s.begin() , ::tolower
 #define upper s.begin() , s.end() , s.begin() , ::toupper
 #define line(s)  getline(cin , s)
@@ -11,17 +11,16 @@
 using namespace std;
 
 void solve() {
-    int a , b ,m;cin >> a >> b;
-    if (a <= b) {
-        m = a * 2;
-        if (m >= b) cout << m*m << endl;
-        else cout << b * b << endl;
-    }else {
-        m = b * 2;
-        if (m >= a) cout << m*m << endl;
-        else cout << a * a << endl;
+    //2 b = 7 d = 10 [5 , 6]
+    ll n , b , d;cin >> n >> b >> d;
+    int a[n];
+    for (int i = 0 ; i < n ; i++) cin >> a[i];
+    int cnt = 0 , cap = 0;
+    for (auto orange : a) {
+        if (orange <= b) cap += orange;
+        if (cap > d) cnt++ , cap = 0;
     }
-
+    cout << cnt;
 }
 
 void files() {
@@ -47,11 +46,11 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     // files();
-    int t;cin >> t;
-    while (t--) {
-        solve();
-    }
-//    solve();
+//    int t;cin >> t;
+//    while (t--) {
+//        solve();
+//    }
+    solve();
 }
 
 

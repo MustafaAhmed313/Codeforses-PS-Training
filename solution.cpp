@@ -3,29 +3,49 @@
 #define ll long long
 #define N 1e18
 #define large (1e9 + 5)
-#define all(v) v.begin() , v.end()
+#define all(a) a.begin() , a.end()
 #define lower s.begin() , s.end() , s.begin() , ::tolower
 #define upper s.begin() , s.end() , s.begin() , ::toupper
 #define line(s)  getline(cin , s)
+#define vll vector<ll>
+#define msll multiset<ll>
+#define sll set<ll>
 
 using namespace std;
 
 void solve() {
-    int y , k , result;cin >> y >> k;
-    result = 6 - max(y , k) + 1;
-    if (result == 2) cout << "1/3";
-    else if (result == 3) cout << "1/2";
-    else if (result == 4) cout << "2/3";
-    else if (result == 6) cout << "1/1";
-    else if (result == 0) cout << "0/1";
-    else cout << result << "/" << 6;
+    ll n , a;cin >> n >> a;
+    vll v(n);
+    bool f = false;
+    ll mini = 1e9 , maxi = 0 , idx = -1;
+    for (int i = 0 ; i < n ; i++) {
+        cin >> v[i];
+        if (v[i] == a) f = true;
+    }
+    sort(all(v));
+    int i = 0;// 1 3 4 5 || a = 2 || i = 2
+    if (f) {
+        while (v[i] != a) i++;
+        if (i == 0) {
+            if (v.size() < 2) cout << 0;
+            else cout << v[i+1] - a;
+        }
+        else if (i == n-1) cout << a - v[i-1];
+        else cout << min(v[i+1] - a , a - v[i-1]);
+    }else {
+        while (v[i] < a) i++;
+        if (i == 0) cout << v[i] - a;
+        else if (i == n) cout << a - v[n-1];
+        else if (v.size() == 2) cout << min(a - v[0] , v[1] - a);
+        else cout << v[i] - v[i-1] + min(v[i] - a , a - v[i-1]);
+    }
 }
 
 void files() {
-#ifndef ONLINE_JUDGE
-    freopen("in.txt", "r", stdin);
-    freopen("out.txt", "w", stdout);
-#endif
+    #ifndef ONLINE_JUDGE
+        freopen("in.txt", "r", stdin);
+        freopen("out.txt", "w", stdout);
+    #endif
 }
 
 ll gcd(ll a,ll b) {
@@ -55,5 +75,4 @@ int main() {
 /*
 <<<saved problems>>>
 
-
- */
+*/
